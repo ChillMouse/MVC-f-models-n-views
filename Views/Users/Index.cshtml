@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MVC_f_Denis.Models.Users>
+
+@{
+    ViewBag.Title = "Мой профиль";
+}
+
+<h2>Мой аккаунт</h2>
+
+<p>
+    @Html.ActionLink("Создать новый", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ИД Роли")
+        </th>
+        <th>
+            @Html.DisplayName("Имя")
+        <th>
+            @Html.DisplayName("Логин")
+        </th>
+        <th>
+            @Html.DisplayName("Пароль")
+        </th>
+        <th>
+            @Html.DisplayName("Телефон")
+        </th>
+        <th>
+            @Html.DisplayName("Почта")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить информацию", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить аккаунт", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

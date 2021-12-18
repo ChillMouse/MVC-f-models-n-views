@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MVC_f_Denis.Models.Asks>
+
+@{
+    ViewBag.Title = "Мои вопросы к товарам";
+}
+
+<h2>Мои вопросы к товарам</h2>
+
+<p>
+    @Html.ActionLink("Задать новый вопрос", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ИД Пользователя")
+        </th>
+        <th>
+            @Html.DisplayName("ИД Продукта")
+        </th>
+        <th>
+            @Html.DisplayName("Текст вопроса")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_product)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ask)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить вопрос", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить вопрос", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

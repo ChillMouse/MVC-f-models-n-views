@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MVC_f_Denis.Models.Favorites>
+
+@{
+    ViewBag.Title = "Мои избранные товары";
+}
+
+<h2>Мои избранные товары</h2>
+
+<p>
+    @Html.ActionLink("Отредактировать избранные товары", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("ИД Пользователя")
+        </th>
+        <th>
+            @Html.DisplayName("ИД Продукта")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_product)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

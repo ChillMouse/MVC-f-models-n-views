@@ -1,0 +1,42 @@
+﻿@model MVC_f_Denis.Models.Asks
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Asks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_user)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_user)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ask)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ask)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
